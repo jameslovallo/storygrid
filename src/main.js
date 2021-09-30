@@ -16,6 +16,7 @@ import Card from '~/components/Card.vue'
 import Carousel from '~/components/Carousel.vue'
 import CarouselSlide from '~/components/CarouselSlide.vue'
 import Carousel3D from '~/components/Carousel3D.vue'
+import Code from '~/components/Code.vue'
 import Column from '~/components/Column.vue'
 import Container from '~/components/Container.vue'
 import Dialog from '~/components/Dialog.vue'
@@ -60,6 +61,7 @@ export default function(Vue, { router, head, isClient, appOptions }) {
 	Vue.component('Carousel', Carousel)
 	Vue.component('CarouselSlide', CarouselSlide)
 	Vue.component('Carousel3D', Carousel3D)
+	Vue.component('Code', Code)
 	Vue.component('Column', Column)
 	Vue.component('Container', Container)
 	Vue.component('Dialog', Dialog)
@@ -90,6 +92,12 @@ export default function(Vue, { router, head, isClient, appOptions }) {
 	Vue.component('Typer', Typer)
 	Vue.component('Video', Video)
 	Vue.component('VideoBackground', VideoBackground)
+
+	Vue.component('v-style', {
+		render: function(createElement) {
+			return createElement('style', this.$slots.default)
+		},
+	})
 
 	Vue.use(Vuetify)
 	appOptions.vuetify = new Vuetify({
